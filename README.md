@@ -75,6 +75,9 @@ Logging | JSON → file (`/data/alarm-log.txt`)
 Screenshots:
 
 HMI DASHBOARD - real-time OT process monitoring
+
+![HMI Dashboard](screenshots/hmi_dashboard.jpeg)
+
 This dashboard displays real-time monitoring of two industrial PLCs within the OT network:
 
  PLC1 – Process Monitoring (e.g., temperature):
@@ -89,6 +92,8 @@ This dashboard displays real-time monitoring of two industrial PLCs within the O
 	•	Alarm logic alerts when SoC < limit.
 
 Flow 1 - PLC1 Process Logic Alarm Simulation
+
+![PLC1 Flow 1](screenshots/plc1_flow.jpeg)
 This flow simulates a critical industrial process controlled by PLC1:
 	•	Modbus READ (HR0): Retrieves process value at fixed intervals.
 	•	Function node (“extract HR0”): Converts raw register value for processing.
@@ -98,6 +103,7 @@ This flow simulates a critical industrial process controlled by PLC1:
 	•	Alarm event logging: Persisted to /data/alarm-log.txt for audit/security analysis.
 
 Flow 2 - PLC2 BESS Simulation
+![PLC2 Flow 2](screenshots/plc2_flow.jpeg)
 This flow represents a basic Battery Energy Storage System (BESS) control simulation:
 	•	Modbus READ (HR0): Reads current State of Charge (%).
 	•	Modbus READ (HR1): Retrieves minimum allowed SoC value.
