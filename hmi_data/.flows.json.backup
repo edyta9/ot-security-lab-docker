@@ -1,0 +1,909 @@
+[
+    {
+        "id": "c9f33fdb20a4d5e1",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6fafb68638d6a93a",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "34f0e1374e45c1f6",
+        "type": "modbus-client",
+        "name": "PLC1 server",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "plc",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "da71ea1df22f9b3d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "89c298c4c0b6eb52",
+        "type": "ui_tab",
+        "name": "OT Lab",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "521ffeec33166730",
+        "type": "ui_group",
+        "name": "PLC1 PROCESS",
+        "tab": "89c298c4c0b6eb52",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c209d372d8fab65f",
+        "type": "ui_group",
+        "name": "PLC2 BESS",
+        "tab": "89c298c4c0b6eb52",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "014eb50ec04c3a6b",
+        "type": "modbus-client",
+        "name": "PLC2 server",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "plc2",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "e7cc3568be75f2bc",
+        "type": "modbus-read",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "PLC1 Read HR0 Process Value Random",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "0",
+        "quantity": "1",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "34f0e1374e45c1f6",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "e79780dd720795e3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fd0b4bc3dc614af5",
+        "type": "debug",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "debug data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0c4310f192346120",
+        "type": "ui_gauge",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "",
+        "group": "521ffeec33166730",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PLC1 Gauge",
+        "label": "°C",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "783dcf4bdb142290",
+        "type": "ui_chart",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "",
+        "group": "521ffeec33166730",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "PLC1 Process Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e79780dd720795e3",
+        "type": "function",
+        "z": "c9f33fdb20a4d5e1",
+        "name": " PLC1 extract HR0",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0];\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "fd0b4bc3dc614af5",
+                "0c4310f192346120",
+                "783dcf4bdb142290",
+                "61fe787397be250c"
+            ]
+        ]
+    },
+    {
+        "id": "61fe787397be250c",
+        "type": "function",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "alarm logic",
+        "func": "// PLC1 – feeder / transformer high alarm logic\n\nvar v = Number(msg.payload);          // process value z HR0\nvar threshold = flow.get('alarm_threshold') || 60;\nvar elevatedMin = threshold - 10;\n\n// poprzedni stan (domyślnie OK)\nvar prevLevel = flow.get('plc1_prev_level') || \"OK\";\nvar currentLevel;\n\nvar uiMsg = {};\nvar logMsg = null;\nvar status = {};\n\n// wyznacz aktualny poziom alarmu\nif (v >= threshold) {\n    currentLevel = \"ALARM_HIGH\";\n    uiMsg.payload = \"ALARM HIGH: \" + v + \" (threshold = \" + threshold + \")\";\n    status.fill = \"red\";\n} else if (v >= elevatedMin) {\n    currentLevel = \"WARNING_HIGH\";\n    uiMsg.payload = \"WARNING HIGH: \" + v + \" (threshold = \" + threshold + \")\";\n    status.fill = \"orange\";\n} else {\n    currentLevel = \"OK\";\n    uiMsg.payload = \"OK: \" + v + \" (threshold = \" + threshold + \")\";\n    status.fill = \"green\";\n}\n\n// zapamiętaj aktualny poziom\nflow.set('plc1_prev_level', currentLevel);\n\n// logujemy TYLKO, jeśli stan się zmienił\nif (currentLevel !== prevLevel) {\n    logMsg = {\n        payload: {\n            plc: \"PLC1\",\n            subsystem: \"FEEDER\",\n            level: currentLevel,\n            value: v,\n            threshold: threshold,\n            timestamp: new Date().toISOString()\n        }\n    };\n}\n\n// UI idzie górnym wyjściem, log dolnym\nuiMsg.ui_control = status;\nreturn [uiMsg, logMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "84a273ee87f2c29c"
+            ],
+            [
+                "547de16dd9f27206"
+            ]
+        ]
+    },
+    {
+        "id": "84a273ee87f2c29c",
+        "type": "ui_text",
+        "z": "c9f33fdb20a4d5e1",
+        "group": "521ffeec33166730",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 850,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3bdcbf14abfba896",
+        "type": "modbus-read",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "PLC1 Read HR1 Alarm Threshold",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "1",
+        "quantity": "1",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "34f0e1374e45c1f6",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 190,
+        "y": 460,
+        "wires": [
+            [
+                "49d8ee2a16b4d216"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "49d8ee2a16b4d216",
+        "type": "function",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "extract HR1 PLC1",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0];\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "9a1099f068dc882e",
+                "3a41ac7c0d5d71ec"
+            ]
+        ]
+    },
+    {
+        "id": "9a1099f068dc882e",
+        "type": "ui_text",
+        "z": "c9f33fdb20a4d5e1",
+        "group": "521ffeec33166730",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alarm High Threshold",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 800,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e2f853548cc6570c",
+        "type": "ui_slider",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "",
+        "label": "SETPOINT",
+        "tooltip": "",
+        "group": "521ffeec33166730",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 210,
+        "y": 620,
+        "wires": [
+            [
+                "d44c9e9296086219"
+            ]
+        ]
+    },
+    {
+        "id": "d44c9e9296086219",
+        "type": "function",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "PLC1 to_modbus_write_HR1",
+        "func": "var v = Number(msg.payload);\n\nif (isNaN(v)) {\n    return null; // ignorujemy dziwne rzeczy\n}\n\n// Przytnij zakres na wszelki wypadek\nif (v < 0) v = 0;\nif (v > 100) v = 100;\n\nmsg.payload = v;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 640,
+        "wires": [
+            [
+                "fc3aae6b01a9564a"
+            ]
+        ]
+    },
+    {
+        "id": "fc3aae6b01a9564a",
+        "type": "modbus-write",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "PLC1 Write HR1 Alarm Threshold",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "1",
+        "quantity": "1",
+        "server": "34f0e1374e45c1f6",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 940,
+        "y": 660,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3a41ac7c0d5d71ec",
+        "type": "function",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "store PLC1 alarm threshold",
+        "func": "// msg.payload zawiera wartość HR1 po extract HR1\nvar threshold = Number(msg.payload);\n\nif (!isNaN(threshold)) {\n    // zapisujemy próg w pamięci flow,\n    // żeby inne nody w tym flow mogły go używać\n    flow.set('alarm_threshold', threshold);\n}\n\n// Możemy też wypuścić to dalej do debug, jeśli chcesz\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "547de16dd9f27206",
+        "type": "file",
+        "z": "c9f33fdb20a4d5e1",
+        "name": "",
+        "filename": "/data/alarm-log.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 890,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2c7aa0e311fa9b2",
+        "type": "modbus-read",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 Read HR0 (State of Change)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "0",
+        "quantity": "1",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "014eb50ec04c3a6b",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "55a00d5a1fb54d15"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0e339390d20e9983",
+        "type": "ui_gauge",
+        "z": "6fafb68638d6a93a",
+        "name": "",
+        "group": "c209d372d8fab65f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PLC2 Gauge",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8d2fd9cf724aea2a",
+        "type": "ui_text",
+        "z": "6fafb68638d6a93a",
+        "group": "c209d372d8fab65f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLC2 SoC Vaule",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fc3bf310b32210a9",
+        "type": "modbus-read",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 Read HR1 (Min SoC)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "1",
+        "quantity": "1",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "014eb50ec04c3a6b",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "d009f84005c4da1a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d009f84005c4da1a",
+        "type": "function",
+        "z": "6fafb68638d6a93a",
+        "name": "extract HR1 PLC2",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0];\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "614a080edad1fde1"
+            ],
+            [
+                "fc4b1d5caea12fec"
+            ]
+        ]
+    },
+    {
+        "id": "614a080edad1fde1",
+        "type": "ui_text",
+        "z": "6fafb68638d6a93a",
+        "group": "c209d372d8fab65f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Min SoC Limit",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 700,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "fc4b1d5caea12fec",
+        "type": "function",
+        "z": "6fafb68638d6a93a",
+        "name": "Store PLC2 min SoC",
+        "func": "var thr = Number(msg.payload);\nif (!isNaN(thr)) {\n    // zapisz próg w pamięci flow dla PLC2\n    flow.set('plc2_min_soc', thr);\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 380,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9f79e8c2c95afecb",
+        "type": "function",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 low SoC alarm",
+        "func": "// PLC2 – BESS low SoC alarm logic\n\nvar v = Number(msg.payload);  // SoC z HR0\nvar threshold = flow.get('plc2_min_soc') || 20;  // min SoC z HR1\n\nvar uiMsg = {};\nvar logMsg = null;\n\nvar status = {};\n\n// Alarm LOW – SoC poniżej limitu\nif (v < threshold) {\n    uiMsg.payload = \"ALARM LOW SoC: \" + v + \"% (min = \" + threshold + \"%)\";\n    status.fill = \"red\";\n\n    logMsg = {\n        payload: {\n            plc: \"PLC2\",\n            subsystem: \"BESS\",\n            level: \"ALARM_LOW_SOC\",\n            soc: v,\n            min_soc: threshold,\n            timestamp: new Date().toISOString()\n        }\n    };\n\n} else if (v < threshold + 5) {\n    // Warning w pasie 'blisko limitu'\n    uiMsg.payload = \"WARNING: SoC near limit (\" + v + \"%, min = \" + threshold + \"%)\";\n    status.fill = \"orange\";\n\n    logMsg = {\n        payload: {\n            plc: \"PLC2\",\n            subsystem: \"BESS\",\n            level: \"WARNING_NEAR_MIN_SOC\",\n            soc: v,\n            min_soc: threshold,\n            timestamp: new Date().toISOString()\n        }\n    };\n\n} else {\n    // OK – nie logujemy normalnego stanu\n    uiMsg.payload = \"OK: \" + v + \"% (min = \" + threshold + \"%)\";\n    status.fill = \"green\";\n}\n\nuiMsg.ui_control = status;\n\nreturn [uiMsg, logMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 220,
+        "wires": [
+            [
+                "bbfb888ee553c31a"
+            ],
+            [
+                "3279dd7b6735a954"
+            ]
+        ]
+    },
+    {
+        "id": "bbfb888ee553c31a",
+        "type": "ui_text",
+        "z": "6fafb68638d6a93a",
+        "group": "c209d372d8fab65f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "BESS Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1010,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "51bbd757bd08daca",
+        "type": "ui_slider",
+        "z": "6fafb68638d6a93a",
+        "name": "",
+        "label": "Set Min SoC",
+        "tooltip": "",
+        "group": "c209d372d8fab65f",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 170,
+        "y": 500,
+        "wires": [
+            [
+                "4e27f58936913fd8"
+            ]
+        ]
+    },
+    {
+        "id": "4e27f58936913fd8",
+        "type": "function",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 to_modbus_min_soc",
+        "func": "var v = Number(msg.payload);\n\nif (isNaN(v)) {\n    return null;\n}\n\n// zakres bezpieczeństwa, np. 5–80%\nif (v < 5) v = 5;\nif (v > 80) v = 80;\n\nmsg.payload = v;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "7d2736eb4ea6bfd4"
+            ]
+        ]
+    },
+    {
+        "id": "7d2736eb4ea6bfd4",
+        "type": "modbus-write",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 Write HR1 (Min SoC)",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "1",
+        "quantity": "1",
+        "server": "014eb50ec04c3a6b",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "55a00d5a1fb54d15",
+        "type": "function",
+        "z": "6fafb68638d6a93a",
+        "name": "PLC2 extract HR0",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length > 0) {\n    msg.payload = msg.payload[0];\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "0e339390d20e9983",
+                "8d2fd9cf724aea2a",
+                "9f79e8c2c95afecb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3279dd7b6735a954",
+        "type": "file",
+        "z": "6fafb68638d6a93a",
+        "name": "",
+        "filename": "/data/alarm-log.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 990,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    }
+]

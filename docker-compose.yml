@@ -1,0 +1,55 @@
+services:
+  it_test:
+    image: alpine:latest
+    container_name: it_test
+    command: ["sleep", "3600"]
+    cap_add:
+      - NET_ADMIN
+    networks:
+      ot_ot_net: {}
+
+  plc2:
+    image: ot-plc
+    container_name: plc2
+    networks:
+      ot_ot_net:
+        ipv4_address: 10.0.0.11
+
+  plc:
+    build: .
+    container_name: plc
+    networks:
+      ot_ot_net:
+        ipv4_address: 10.0.0.10
+
+  fw:
+    build: ./fw
+    image: ot-fw
+    container_name: fw
+    cap_add:
+      - NET_ADMIN
+    networks:
+      ot_ot_net:
+        ipv4_address: 10.0.0.5
+
+  hmi:
+    image: nodered/node-red:latest
+    container_name: hmi
+    networks:
+      ot_ot_net:
+        ipv4_address: 10.0.0.30
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./hmi_data:/data
+    environment:
+      TZ: Europe/London
+    command: >
+      sh -c "npm install node-red-contrib-modbus && npm start"
+
+networks:
+  ot_ot_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
