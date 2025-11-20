@@ -72,6 +72,41 @@ Protocol | Modbus TCP
 Dashboard | Node-RED UI 
 Logging | JSON → file (`/data/alarm-log.txt`) 
 
+Screenshots:
+
+HMI DASHBOARD - real-time OT process monitoring
+This dashboard displays real-time monitoring of two industrial PLCs within the OT network:
+
+ PLC1 – Process Monitoring (e.g., temperature):
+	•	Live chart using Modbus TCP (HR0 read).
+	•	Alarm threshold dynamically adjustable via UI slider (written to PLC using Modbus).
+	•	Status logic with conditional display: OK, Elevated, or Alarm, based on threshold.
+	•	Gauge visualization for fast operator situational awareness.
+
+ PLC2 – BESS (Battery Energy Storage System):
+	•	Displays current State of Charge (SoC).
+	•	Operator can define minimum allowed SoC level.
+	•	Alarm logic alerts when SoC < limit.
+
+Flow 1 - PLC1 Process Logic Alarm Simulation
+This flow simulates a critical industrial process controlled by PLC1:
+	•	Modbus READ (HR0): Retrieves process value at fixed intervals.
+	•	Function node (“extract HR0”): Converts raw register value for processing.
+	•	Alarm logic: Determines severity level (OK / Elevated / High Alarm).
+	•	UI Slider (“SETPOINT”): Operator dynamically adjusts alarm threshold.
+	•	Modbus WRITE (HR1): Writes new threshold to PLC.
+	•	Alarm event logging: Persisted to /data/alarm-log.txt for audit/security analysis.
+
+Flow 2 - PLC2 BESS Simulation
+This flow represents a basic Battery Energy Storage System (BESS) control simulation:
+	•	Modbus READ (HR0): Reads current State of Charge (%).
+	•	Modbus READ (HR1): Retrieves minimum allowed SoC value.
+	•	Alarm logic: If current SoC drops below limit → Alarm triggered.
+	•	UI Slider (“Set Min SoC”): Operator can change minimum SoC threshold.
+	•	Modbus WRITE: Updates new threshold in PLC memory.
+	•	Event Logging: Alarm conditions are written to the same log for centralized tracking.
+
+
 
 How to Run
 Build and start containers:
