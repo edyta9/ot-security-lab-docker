@@ -36,6 +36,7 @@ Addressing (inside the Docker network):
 - `it_test` → 10.0.0.2 (IT host)
 
 System Architecture Diagram
+
 ![OT DIAGRAM](screenshots/OT.jpg)
 
 
