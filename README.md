@@ -35,21 +35,12 @@ Addressing (inside the Docker network):
 - `hmi`   → 10.0.0.30 (Node-RED / HMI)
 - `it_test` → 10.0.0.2 (IT host)
 
-System Architecture:
+System Architecture Diagram
+![OT DIAGRAM](screenshots/OT.jpg)
 
 
-        IT Zone                           OT Zone
-  ┌─────────────────┐              ┌──────────────────────┐
-  │  it_test        │              │  HMI (Node-RED)      │
-  │  10.0.0.2       │              │  10.0.0.30           │
-  └────────┬────────┘              └─────────┬────────────┘
-           │  (routed via fw)                │  Modbus TCP
-           ▼                                  ▼
-     ┌────────────┐                    ┌────────────┬──────────────┐
-     │  fw        │                    │  PLC1      │   PLC2       │
-     │ 10.0.0.5   │                    │10.0.0.10   │10.0.0.11     │
-     │ iptables   │                    │ PROCESS    │ BESS         │
-     └────────────┘                    └────────────┴──────────────┘
+
+       
 
 OT Zones:
 
