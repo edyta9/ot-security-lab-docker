@@ -116,7 +116,32 @@ This flow represents a basic Battery Energy Storage System (BESS) control simula
 - Modbus WRITE: Updates new threshold in PLC memory.
 - Event Logging: Alarm conditions are written to the same log for centralized tracking.
 
+Future Improvements:
 
+To further evolve this lab into a more realistic OT security simulation, I plan to implement:
+
+- **Network-level segmentation (VLANs)**
+  
+- **SIEM / Security Monitoring Integration**
+  - Send alarm logs (from HMI) to a mock SOC using Elasticsearch / Wazuh.
+  
+- **Add Intrusion Detection**
+  - Integrate Suricata to monitor ICS traffic (Modbus anomalies, Lateral movement detection).
+  
+- **Introduce authentication & encrypted ICS protocols**
+  - Replace Modbus TCP with OPC UA
+  
+- **Multiple user access levels**
+  - Add role-based access in HMI (operator vs. engineer vs. attacker simulation).
+  
+- **Simulate common cyber attack vectors**
+  
+- **More complex PLC logic**
+  - Add interlock logic or emergency shutdown.
+  
+- **Include external services**
+  - An industrial cloud API connection.
+  
 
 How to Run:
 
