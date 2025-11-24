@@ -1,6 +1,6 @@
 OT Security Lab – PLC, Modbus, HMI, Firewall
 
-IN PROGRESS
+Status: In progress (core lab features working, more security features planned).
 
 This project is a small OT (Operational Technology) lab running entirely in Docker.  
 
