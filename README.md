@@ -143,18 +143,32 @@ To further evolve this lab into a more realistic OT security simulation, I plan 
   - An industrial cloud API connection.
   
 
-How to Run:
+How to run from Scratch
 
-Build and start containers:
+1. Make sure you have Docker installed and updated.
+
+2. Clone the project.
+
+git clone https://github.com/edyta9/ot-security-lab-docker.git
+cd ot-security-lab-docker
+
+3. Build and start containers:
 
 docker compose up --build
 
-Access Node-RED HMI:
+4. Access Node-RED HMI:
 
 http://localhost:1880/ui
 
-Enter firewall container to check rules:
+5. Enter firewall container to check rules:
 
 docker exec -it fw sh
 
 iptables -L -v -n
+
+7. Attempt simulated intrusion ( expected to fail):
+
+docker exec -it it_test sh
+
+nc -zv 10.0.0.10 502
+
