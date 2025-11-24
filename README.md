@@ -47,7 +47,8 @@ OT Zones:
 
 - Zone 1 – PLCs (Critical Process Controllers)
 - Zone 2 – HMI (Monitoring only)
-- Zone 3 – IT Network (Restricted – blocked access to PLC)
+- Zone 3 - Firewall
+- Zone 4 – IT Network (Restricted – blocked access to PLC)
 
 Security concepts implemented:
 
@@ -67,15 +68,23 @@ Technologies Used
 - Network Control | `iptables`, Linux 
 - Protocol | Modbus TCP 
 - Dashboard | Node-RED UI 
-- Logging | JSON → file (`/data/alarm-log.txt`) 
+- Logging | JSON → file (`/data/alarm-log.txt`)
+  
+What this lab demonstrates
 
+- Basic OT network segmentation using Docker networking + firewall
+- Secure Modbus TCP communication patterns
+- HMI to PLC interaction and alarm logic
+- Logging strategy ready for SIEM/SOC integration
+- BESS-style control logic (SoC monitoring and threshold management)
+  
 Screenshots:
 
 HMI DASHBOARD - real-time OT process monitoring
 
 ![HMI Dashboard](screenshots/hmi_dashboard.jpeg)
 
-This dashboard is designated to displays real-time monitoring of two industrial PLCs similar to HMI?SCADA interace.
+This dashboard is designed to displays real-time monitoring of two industrial PLCs similar to HMI/SCADA interface.
 
  PLC1 – Process Monitoring (e.g., temperature):
  
@@ -120,7 +129,7 @@ Future Improvements:
 
 To further evolve this lab into a more realistic OT security simulation, I plan to implement:
 
-- **Network-level segmentation (VLANs)**
+- **Network-level segmentation (VLANs) simulated**
   
 - **SIEM / Security Monitoring Integration**
   - Send alarm logs (from HMI) to a mock SOC using Elasticsearch / Wazuh.
@@ -143,7 +152,7 @@ To further evolve this lab into a more realistic OT security simulation, I plan 
   - An industrial cloud API connection.
   
 
-How to run from Scratch
+How to Run from Scratch
 
 1. Make sure you have Docker installed and updated.
 
@@ -166,9 +175,11 @@ docker exec -it fw sh
 
 iptables -L -v -n
 
-7. Attempt simulated intrusion ( expected to fail):
+6. Attempt simulated intrusion ( expected to fail):
 
 docker exec -it it_test sh
 
 nc -zv 10.0.0.10 502
 
+> Disclaimer: This lab is for educational and training purposes only.  
+> Do not connect it directly to production networks or real industrial systems.
